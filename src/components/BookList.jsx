@@ -1,6 +1,9 @@
+/* eslint-disable linebreak-style */
+// BookList.js
+
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeBook } from '../redux/books/bookSlice';
+import { removeBook } from '../redux/books/booksSlice';
 
 function BookList() {
   const dispatch = useDispatch();

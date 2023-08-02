@@ -1,7 +1,7 @@
 /* eslint-disable linebreak-style */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook } from '../redux/books/bookSlice';
 import BookList from './BookList';
 
 function AddBook() {

@@ -6,3 +6,13 @@ HTTP requests process simplify like supports Promise based API. */
 const BaseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 const id = 'Mmy70lrcpxOYw0hyZQfR';
 const Url = `${BaseUrl}/${id}/books`;
+// Getting All Books
+const getBooks = createAsyncThunk('books/getBooks', async () => {
+  try {
+    const response = await axios(Url);
+    const data = await response.data;
+    return data;
+  } catch (error) {
+    return error;
+  }
+});

@@ -7,9 +7,31 @@ const BaseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/book
 const id = 'Mmy70lrcpxOYw0hyZQfR';
 const Url = `${BaseUrl}/${id}/books`;
 // Getting All Books
-const getBooks = createAsyncThunk('books/getBooks', async () => {
+/* createAsyncThunk will always return a resolved promise
+ with either the fulfilled action object or rejected action object */
+export const getBooks = createAsyncThunk('books/getBooks', async () => {
   try {
     const response = await axios(Url);
+    const data = await response.data;
+    return data;
+  } catch (error) {
+    return error;
+  }
+});
+// Add Books
+export const addBooks = createAsyncThunk('books/addBooks', async (book) => {
+  try {
+    const response = await axios.post(Url, book);
+    const data = await response.data;
+    return data;
+  } catch (error) {
+    return error;
+  }
+});
+// Delete Books
+export const deleteBooks = createAsyncThunk('books/deleteBooks', async (bookId) => {
+  try {
+    const response = await axios.delete(`${Url}/${bookId}`);
     const data = await response.data;
     return data;
   } catch (error) {

@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -7,6 +6,7 @@ function Book({ book, onRemove }) {
     <div>
       <span>{book.title}</span>
       <span>{book.category}</span>
+      <span>{book.author}</span>
       <button type="button" onClick={() => onRemove(book.id)}>Delete</button>
     </div>
   );
@@ -18,6 +18,7 @@ Book.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
   }).isRequired,
   onRemove: PropTypes.func.isRequired,
 };

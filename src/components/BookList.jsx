@@ -1,6 +1,3 @@
-/* eslint-disable linebreak-style */
-// BookList.js
-
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeBook } from '../redux/books/booksSlice';
@@ -24,6 +21,7 @@ function BookList() {
         <div key={book.id}>
           <span>{book.title}</span>
           <span>{book.category}</span>
+          <span>{book.author}</span>
           <button type="button" onClick={() => handleRemoveBook(book.id)}>Delete</button>
         </div>
       ))}

@@ -36,7 +36,7 @@ function BookList() {
             category={book.category}
             title={book.title}
             key={book.item_id}
-            id={book.item_id}
+            id={book.id}
           />
         ))}
 

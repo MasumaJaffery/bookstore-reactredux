@@ -3,7 +3,7 @@ import axios from 'axios';
 /*  npm install axios
  Axios is a popular JavaScript library used for making
 HTTP requests process simplify like supports Promise based API. */
-const BaseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
+const BaseUrl = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
 const id = 'Mmy70lrcpxOYw0hyZQfR';
 const Url = `${BaseUrl}/${id}/books`;
 // Getting All Books
@@ -19,6 +19,7 @@ export const getBooks = createAsyncThunk('books/getBooks', async () => {
   }
 });
 // Add Books
+// Add Books
 export const addBooks = createAsyncThunk('books/addBooks', async (book) => {
   try {
     const response = await axios.post(Url, book);
@@ -28,6 +29,7 @@ export const addBooks = createAsyncThunk('books/addBooks', async (book) => {
     return error;
   }
 });
+
 // Delete Books
 export const deleteBooks = createAsyncThunk('books/deleteBooks', async (bookId) => {
   try {

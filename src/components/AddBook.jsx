@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { addBooks } from '../API/Apifunc';
 import BookList from './BookList';
 
 function AddBook() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-
+  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
-
   const handleAddBook = (e) => {
     e.preventDefault();
-    if (title.trim() === '' || author.trim() === '') {
-      return;
-    }
+    if (category === 'category' || !title) return;
     const newBook = {
-      id: Date.now(),
+      item_id: new Date().getTime(),
       title,
       author,
+      category,
     };
 
-    dispatch(addBook(newBook)); // Dispatch the action to add a book
+    dispatch(addBooks(newBook)); // Dispatch the action to add a book
+    setCategory('category');
     setTitle('');
     setAuthor('');
   };

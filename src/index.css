@@ -25,3 +25,71 @@ code {
     'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.book {
+  transition: 0.3s ease all;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 8rem;
+  padding: 0 3rem;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4rem 2rem 4rem rgba(0, 0, 0, 0.03);
+}
+
+nav h1 {
+  font-weight: bold;
+  color: rgb(1, 125, 241);
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  font-size: larger;
+  font-weight: 500;
+  list-style: none;
+  margin-left: 2rem;
+  color: rgb(1, 125, 241);
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.form-cont {
+  margin-top: 3%;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+#title,
+#author {
+  width: 20%;
+}
+
+select {
+  width: 30%;
+}
+
+.left {
+  margin-left: 9%;
+}

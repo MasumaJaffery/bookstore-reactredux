@@ -5,7 +5,6 @@ import Categories from './Categories';
 const HomePage = () => (
   <>
     <Navbar />
-    <h1>Book Store</h1>
     <Categories />
     <AddBook />
   </>

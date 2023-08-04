@@ -38,12 +38,23 @@ function AddBook() {
           />
           <input
             type="text"
-            id="category"
-            name="category"
+            id="author"
+            name="author"
             placeholder="Author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="form-select"
+          >
+            <option value="category">Category</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Legacy">Legacy</option>
+            <option value="Action">Action</option>
+          </select>
+
           <button type="submit">Add Book</button>
         </form>
       </div>

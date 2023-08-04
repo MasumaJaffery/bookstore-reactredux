@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { addBooks } from '../API/Apifunc';
 import BookList from './BookList';
 
 function AddBook() {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-
+  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
-
   const handleAddBook = (e) => {
     e.preventDefault();
-    if (title.trim() === '' || author.trim() === '') {
-      return;
-    }
+    if (category === 'category' || !title) return;
     const newBook = {
-      id: Date.now(),
+      item_id: new Date().getTime(),
       title,
       author,
+      category,
     };
 
-    dispatch(addBook(newBook)); // Dispatch the action to add a book
+    dispatch(addBooks(newBook)); // Dispatch the action to add a book
+    setCategory('category');
     setTitle('');
     setAuthor('');
   };
@@ -39,12 +38,23 @@ function AddBook() {
           />
           <input
             type="text"
-            id="category"
-            name="category"
+            id="author"
+            name="author"
             placeholder="Author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="form-select"
+          >
+            <option value="category">Category</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Legacy">Legacy</option>
+            <option value="Action">Action</option>
+          </select>
+
           <button type="submit">Add Book</button>
         </form>
       </div>

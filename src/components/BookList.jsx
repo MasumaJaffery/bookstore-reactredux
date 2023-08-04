@@ -1,32 +1,46 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import Book from './Book';
+import { getBooks } from '../API/Apifunc';
 
 function BookList() {
+  const {
+    books, isLoading, length, hasError, errorMessage,
+  } = useSelector((store) => store.books);
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.books);
+  useEffect(() => {
+    dispatch(getBooks());
+  }, [dispatch, length]);
 
-  // Check if books is undefined or empty before rendering
-  if (!books || books.length === 0) {
-    return <h5>No books available.</h5>;
+  if (isLoading) {
+    return <div className="alert alert-primary">Loading</div>;
   }
 
-  const handleRemoveBook = (bookId) => {
-    dispatch(removeBook(bookId)); // Dispatch the removeBook action with the bookId as payload
-  };
+  if (hasError) {
+    return (
+      <div className="alert alert-danger">
+        Something went wrong:
+        {errorMessage}
+      </div>
+    );
+  }
 
   return (
-    <div>
-      {books.map((book) => (
-        <div key={book.id}>
-          <span>{book.title}</span>
-          <span>{book.category}</span>
-          <span>{book.author}</span>
-          <button type="button" onClick={() => handleRemoveBook(book.id)}>Delete</button>
-        </div>
-      ))}
+    <div className="p-4 border border-success rounded mt-3">
+      <h1 className="fw-bold">Book List</h1>
+      {length === 0
+        ? <div className="alert alert-danger">The Bookstore is empty. Add book(s) to be listed here.</div>
+        : books.map((book) => (
+          <Book
+            author={book.author}
+            category={book.category}
+            title={book.title}
+            key={book.item_id}
+            id={book.id}
+          />
+        ))}
+
     </div>
   );
 }
-
 export default BookList;

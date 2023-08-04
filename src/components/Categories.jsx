@@ -1,6 +1,2 @@
-const Categories = () => (
-  <>
-    <h1>Categories</h1>
-  </>
-);
+const Categories = () => null;
 export default Categories;

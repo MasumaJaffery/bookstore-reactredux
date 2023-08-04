@@ -27,38 +27,41 @@ function AddBook() {
   return (
     <>
       <div>
-        <form onSubmit={handleAddBook}>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={title}
-            placeholder="Title"
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <input
-            type="text"
-            id="author"
-            name="author"
-            placeholder="Author"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-          />
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="form-select"
-          >
-            <option value="category">Category</option>
-            <option value="Fiction">Fiction</option>
-            <option value="Legacy">Legacy</option>
-            <option value="Action">Action</option>
-          </select>
-
-          <button type="submit">Add Book</button>
-        </form>
+        <BookList />
+        <div className="form-cont">
+          <h3 className="left">Add New Book</h3>
+          <form onSubmit={handleAddBook}>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={title}
+              placeholder=" Title"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder=" Author"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+            />
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="form-select"
+              style={{ width: '32%' }}
+            >
+              <option value="category">Category</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Legacy">Legacy</option>
+              <option value="Action">Action</option>
+            </select>
+            <button type="submit" className="btn btn-primary">Add Book</button>
+          </form>
+        </div>
       </div>
-      <BookList />
     </>
   );
 }

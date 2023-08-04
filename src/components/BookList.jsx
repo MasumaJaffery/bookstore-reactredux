@@ -27,7 +27,6 @@ function BookList() {
 
   return (
     <div className="p-4 border border-success rounded mt-3">
-      <h1 className="fw-bold">Book List</h1>
       {length === 0
         ? <div className="alert alert-danger">The Bookstore is empty. Add book(s) to be listed here.</div>
         : books.map((book) => (

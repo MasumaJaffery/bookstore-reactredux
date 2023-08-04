@@ -2,6 +2,17 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteBooks } from '../API/Apifunc';
 
+const BookCircl = ({ completed }) => (
+  <div className="book-progress">
+    <div className="circular-container">
+      <div className="circular" />
+    </div>
+    <div className="progress-info">
+      <p className="progress-info-percentage">{completed}</p>
+    </div>
+  </div>
+);
+
 function Book({
   id, category, title, author,
 }) {
@@ -24,24 +35,29 @@ function Book({
                 </button>
                 <button
                   type="button"
-                  className="list-group-item btn btn-sm btn-danger"
+                  className="list-group-item btn btn-sm btn-outline-primary"
                   onClick={() => dispatch(deleteBooks(id))}
                 >
                   Remove
                 </button>
                 <button
                   type="button"
-                  className="list-group-item btn btn-sm btn-outline-warning"
+                  className="list-group-item btn btn-sm btn-light"
                 >
                   Edit
                 </button>
               </div>
             </div>
-            <div className="col-auto ms-auto border-end border-gray pe-5">
-              <div>Progress</div>
+            <div className="col-auto ms-auto border-end border-gray pe-5 flex">
               <div>
-                <h3 className="mb-0 h2 fw-bold">64%</h3>
-                <p className="text-muted mt-0">Completed</p>
+                <BookCircl />
+              </div>
+              <div>
+                <div>Progress</div>
+                <div>
+                  <h3 className="mb-0 h2 fw-bold">64%</h3>
+                  <p className="text-muted mt-0">Completed</p>
+                </div>
               </div>
             </div>
           </div>
@@ -50,7 +66,7 @@ function Book({
         <div className="col-auto ps-5 ">
           <p className="text-muted m-0">CURRENT CHAPTER</p>
           <p className="fw-bold">Chapter 17</p>
-          <button type="button" className="btn btn-outline-primary w-100">
+          <button type="button" className="btn btn-primary w-100">
             Update progress
           </button>
         </div>
@@ -64,6 +80,10 @@ Book.propTypes = {
   category: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+};
+
+BookCircl.propTypes = {
+  completed: PropTypes.string.isRequired,
 };
 
 export default Book;

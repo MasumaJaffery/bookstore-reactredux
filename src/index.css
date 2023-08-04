@@ -25,3 +25,122 @@ code {
     'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.book {
+  transition: 0.3s ease all;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 8rem;
+  padding: 0 3rem;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4rem 2rem 4rem rgba(0, 0, 0, 0.03);
+}
+
+.nav {
+  display: flex;
+  align-items: baseline;
+}
+
+nav h1 {
+  color: rgb(1, 125, 241);
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  font-size: larger;
+  font-weight: 500;
+  list-style: none;
+  margin-left: 2rem;
+  color: rgb(1, 125, 241);
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.form-cont {
+  margin-top: 3%;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+#title,
+#author {
+  width: 20%;
+}
+
+select {
+  width: 30%;
+}
+
+.left {
+  margin-left: 9%;
+}
+
+.circular-container {
+  width: 5.625rem;
+  height: 5.62rem;
+  padding: 0.62rem 0.625rem 0.75rem 0.75rem;
+}
+
+.circular {
+  position: relative;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  background: conic-gradient(#2c88d9 230deg, rgb(18, 18, 18, 0.1) 0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circular::before {
+  content: '';
+  position: absolute;
+  height: 3.7rem;
+  width: 3.7rem;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.progress-info-percentage {
+  font-size: 2rem;
+  color: #121212;
+  margin: 0.063rem 0;
+}
+
+.progress-completed-text {
+  opacity: 0.5;
+  font-size: 0.875em;
+  color: #121212;
+  margin: 0.238rem 0 0.75rem 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.user-icon {
+  color: #0290ff;
+}

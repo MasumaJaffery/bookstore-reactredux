@@ -12,7 +12,7 @@ const Navbar = () => (
           <li><NavLink to="/categories" className="nav-link">Categories</NavLink></li>
         </ul>
       </div>
-      <FaUser />
+      <FaUser icon="fa-solid fa-user" style={{ color: '#337eff' }} />
     </nav>
   </>
 );

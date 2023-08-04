@@ -55,7 +55,7 @@ function Book({
               <div>
                 <div>Progress</div>
                 <div>
-                  <h3 className="mb-0 h2 fw-bold">90%</h3>
+                  <h3 className="mb-0 h2 fw-bold">64%</h3>
                   <p className="text-muted mt-0">Completed</p>
                 </div>
               </div>
